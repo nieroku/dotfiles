@@ -1,0 +1,63 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+format = """
+$directory$git_branch$git_state$git_metrics$nix_shell$python\
+$fill$line_break\
+$username$hostname$character
+"""
+right_format = '$status$cmd_duration$jobs'
+
+[directory]
+format = '[$path]($style)([ $read_only]($read_only_style)) '
+style = "bold blue"
+repo_root_format = """
+[$repo_root]($repo_root_style)\
+[$path]($style)\
+[$read_only]($read_only_style) \
+"""
+repo_root_style = "bold green"
+read_only = '(ro)'
+read_only_style = "bold red"
+truncation_symbol = ".../"
+
+[git_metrics]
+disabled = false
+
+[python]
+symbol = ' '
+format = '[$symbol using venv ($virtualenv) ]($style)'
+detect_extensions = []
+detect_files = []
+detect_folders = []
+
+[nix_shell]
+symbol = ' '
+format = 'via [$symbol( $name \($state\))]($style) '
+
+[fill]
+symbol = '·'
+style = "none"
+
+[username]
+format = '[$user]($style)'
+
+[hostname]
+format = '[@$hostname]($style)'
+style = "bold yellow"
+
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+vimcmd_symbol = '[|](bold yellow)'
+
+[status]
+disabled = false
+format = '[$common_meaning(SIG$signal_name)$maybe_int]($style) '
+pipestatus = true
+pipestatus_format = '\[$pipestatus\] '
+pipestatus_segment_format = '[$symbol$common_meaning(SIG$signal_name)$maybe_int]($style)'
+success_style = "bold green"
+symbol = ''
+success_symbol = 'OK'
+

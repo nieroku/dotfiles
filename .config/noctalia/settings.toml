@@ -1,0 +1,483 @@
+[audio]
+enable_overdrive = true
+enable_sounds = true
+
+[bar]
+order = [ "top", "left", "right", "bottom" ]
+
+    [bar.bottom]
+    background_opacity = 0.0
+    capsule = true
+    capsule_border = "primary"
+    capsule_padding = 8.0
+    center = [ "media" ]
+    enabled = true
+    end = [ "tray" ]
+    margin_edge = 8
+    position = "bottom"
+    reserve_space = false
+    shadow = false
+    show_on_workspace_switch = false
+    start = [ "audio_visualizer" ]
+    thickness = 48
+
+        [bar.bottom.dead_zone.actions]
+        right = "none"
+
+    [bar.left]
+    background_opacity = 0.0
+    center = [ "workspaces" ]
+    enabled = true
+    end = []
+    position = "left"
+    reserve_space = false
+    scale = 1.8000000193715096
+    shadow = false
+    show_on_workspace_switch = false
+    start = []
+    thickness = 64
+
+        [bar.left.dead_zone.actions]
+        right = "none"
+
+    [bar.right]
+    background_opacity = 0.0
+    center = [ "workspaces" ]
+    enabled = true
+    end = []
+    position = "right"
+    reserve_space = false
+    scale = 1.8000000193715096
+    shadow = false
+    show_on_workspace_switch = false
+    start = []
+    thickness = 64
+
+        [bar.right.dead_zone.actions]
+        right = "none"
+
+    [bar.top]
+    capsule = true
+    capsule_border = "primary"
+    center = [ "group:g1" ]
+    concave_edge_corners = false
+    end = [ "group:g2", "group:g7", "group:g3", "group:g4" ]
+    margin_ends = 0
+    radius = 0
+    reserve_space = false
+    show_on_workspace_switch = false
+    start = [ "battery", "group:g6", "group:g5", "brightness", "caffeine" ]
+
+        [bar.top.dead_zone.actions]
+        right = "none"
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = ""
+        enabled = true
+        fill = "on_primary"
+        id = "g1"
+        members = [ "clock", "date" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "cpu-usage", "cpu-freq", "cpu-temp" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g3"
+        members = [ "ram-percent", "ram-used" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g4"
+        members = [ "network_rx", "network_tx" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g5"
+        members = [ "volume", "input_volume" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g6"
+        members = [ "network", "bluetooth" ]
+        opacity = 1.0
+        padding = 6.0
+
+        [[bar.top.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g7"
+        members = [ "gpu-usage", "gpu-temp" ]
+        opacity = 1.0
+        padding = 6.0
+
+[brightness]
+enable_ddcutil = true
+minimum_brightness = 0.099999997764825821
+
+[control_center]
+hidden_tabs = [ "media" ]
+
+    [control_center.calendar]
+    show_events_card = false
+
+    [[control_center.shortcuts]]
+    type = "wifi"
+
+    [[control_center.shortcuts]]
+    type = "bluetooth"
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[hooks]
+started = "~/.config/scripts/actually-smart-bars.sh"
+
+[hot_corners]
+enabled = true
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+pre_action_fade_seconds = 5
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 300.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 1200.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 330.0
+
+[keybinds]
+down = [ "Down", "Alt+j" ]
+left = [ "Left", "Alt+h" ]
+right = [ "Right", "Alt+l" ]
+tab_previous = [ "Shift+ISO_Left_Tab", "Alt+Tab" ]
+up = [ "Up", "Alt+k" ]
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@winit", "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000002" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 768.0
+    cy = 682.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@winit"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 934.9998779296875
+    cy = 848.0
+    output = "winit"
+    placement_height = 1030.0
+    placement_width = 1870.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@winit".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 768.0
+    cy = 432.0
+    output = "eDP-1"
+    placement_height = 864.0
+    placement_width = 1536.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        clock_style = "digital"
+        format = "{:%H:%M}\\n{:%a %d %b (%x)}"
+
+[nightlight]
+enabled = true
+force = true
+temperature_night = 6300
+
+[osd]
+background_opacity = 0.99999997764825821
+offset_x = 32
+orientation = "vertical"
+position_vertical = "center_right"
+
+[plugin_settings."elijaharch/wl-screen-mirror"]
+controls_placement = "floating"
+controls_position = "center"
+
+[plugin_settings."kenn/keybind-cheatsheet"]
+show_actions = true
+
+[plugin_settings."noctalia/world_clock"]
+panel_placement = "floating"
+panel_position = "center"
+
+[plugin_settings."raycursive/niri-displays"]
+panel_open_near_click = false
+panel_placement = "floating"
+panel_position = "center"
+
+[plugin_settings."yugaaank/better-clock"]
+date_format = "%A, %B %d"
+time_format = "%H:%M"
+
+[plugins]
+enabled = [ "raycursive/niri-displays", "elijaharch/wl-screen-mirror" ]
+
+[shell]
+font_family = "Noto Sans"
+polkit_agent = true
+
+    [shell.launcher]
+    categories = false
+    show_app_actions = true
+
+    [shell.panel]
+    control_center_placement = "floating"
+    control_center_position = "center"
+    floating_layer = "top"
+    session_placement = "floating"
+    session_position = "center"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center"
+
+    [shell.screenshot]
+    save_to_file = false
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "Alt+l"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "Alt+o"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "command"
+    command = "systemctl sleep"
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = "zzz"
+    label = "Sleep"
+    shortcut = "Alt+s"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "command"
+    command = "systemctl hibernate"
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = "arrow-big-down-line-filled"
+    label = "Hibernate"
+    shortcut = "Alt+h"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    command = "systemctl reboot"
+    countdown_seconds = 5.0
+    enabled = true
+    shortcut = "Alt+r"
+    variant = "destructive"
+
+    [[shell.session.actions]]
+    action = "command"
+    command = "systemctl poweroff"
+    countdown_seconds = 5.0
+    enabled = true
+    glyph = "power"
+    label = "Power Off"
+    shortcut = "Alt+p"
+    variant = "destructive"
+
+[theme]
+builtin = "Kanagawa"
+community_palette = "Catppuccin Frappe Green"
+mode = "light"
+source = "builtin"
+wallpaper_scheme = "m3-content"
+
+[wallpaper]
+directory = "/usr/share/desktop-base"
+
+    [wallpaper.default]
+    path = "/usr/share/desktop-base/ceratopsian-theme/grub/grub-16x9.png"
+
+    [wallpaper.last]
+    path = "/usr/share/desktop-base/ceratopsian-theme/grub/grub-16x9.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/usr/share/desktop-base/ceratopsian-theme/grub/grub-16x9.png"
+
+[weather]
+enabled = false
+
+[widget.audio_visualizer]
+bands = 64
+color_1 = "secondary"
+color_2 = "secondary"
+mirrored = false
+reversed = true
+show_when_idle = true
+width = 128
+
+[widget.cpu-freq]
+show_glyph = false
+stat = "cpu_freq"
+type = "sysmon"
+visualization = "none"
+
+[widget.cpu-temp]
+stat = "cpu_temp"
+type = "sysmon"
+visualization = "none"
+
+[widget.cpu-usage]
+type = "sysmon"
+visualization = "none"
+
+[widget.date]
+format = "%a %d %b (%x)"
+
+[widget.gpu-temp]
+stat = "gpu_temp"
+type = "sysmon"
+visualization = "none"
+
+[widget.gpu-usage]
+stat = "gpu_usage"
+type = "sysmon"
+visualization = "none"
+
+[widget.media]
+anchor = true
+max_length = 800
+title_scroll = "always"
+
+[widget.network_rx]
+visualization = "none"
+
+[widget.network_tx]
+visualization = "none"
+
+[widget.ram-percent]
+stat = "ram_pct"
+type = "sysmon"
+visualization = "none"
+
+[widget.ram-used]
+show_glyph = false
+stat = "ram_used"
+type = "sysmon"
+visualization = "none"
+
+[widget.workspaces]
+active_pill_size = 2.0
+capsule = true
+capsule_border = "primary"
+change_color_on_hover = false
+empty_color = "tertiary"
+show_labels = false

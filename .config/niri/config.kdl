@@ -1,0 +1,466 @@
+animations {
+    slowdown 1.3
+}
+include "open-close-animations.kdl"
+include optional=true "local.kdl"
+binds {
+    // Escape as the "out" key
+    Mod+Escape repeat=false {
+        spawn "noctalia" "msg" "panel-toggle" "session"
+    }
+    // F12, because it's a rarely used key
+    Mod+F12 allow-inhibiting=false repeat=false {
+        toggle-keyboard-shortcuts-inhibit
+    }
+    // top of workspaces stack
+    Mod+0 repeat=false {
+        spawn "nirix" "focus-workspace" "0"
+    }
+    Mod+Ctrl+0 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "0"
+    }
+    Mod+Shift+0 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "0"
+    }
+    Mod+1 repeat=false {
+        spawn "nirix" "focus-workspace" "-1"
+    }
+    Mod+2 repeat=false {
+        spawn "nirix" "focus-workspace" "-2"
+    }
+    Mod+3 repeat=false {
+        spawn "nirix" "focus-workspace" "-3"
+    }
+    Mod+4 repeat=false {
+        spawn "nirix" "focus-workspace" "-4"
+    }
+    Mod+5 repeat=false {
+        spawn "nirix" "focus-workspace" "-5"
+    }
+    Mod+6 repeat=false {
+        spawn "nirix" "focus-workspace" "-6"
+    }
+    Mod+7 repeat=false {
+        spawn "nirix" "focus-workspace" "-7"
+    }
+    Mod+8 repeat=false {
+        spawn "nirix" "focus-workspace" "-8"
+    }
+    Mod+Ctrl+1 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-1"
+    }
+    Mod+Ctrl+2 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-2"
+    }
+    Mod+Ctrl+3 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-3"
+    }
+    Mod+Ctrl+4 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-4"
+    }
+    Mod+Ctrl+5 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-5"
+    }
+    Mod+Ctrl+6 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-6"
+    }
+    Mod+Ctrl+7 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-7"
+    }
+    Mod+Ctrl+8 repeat=false {
+        spawn "nirix" "move-column-to-workspace" "-8"
+    }
+    Mod+Shift+1 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-1"
+    }
+    Mod+Shift+2 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-2"
+    }
+    Mod+Shift+3 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-3"
+    }
+    Mod+Shift+4 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-4"
+    }
+    Mod+Shift+5 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-5"
+    }
+    Mod+Shift+6 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-6"
+    }
+    Mod+Shift+7 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-7"
+    }
+    Mod+Shift+8 repeat=false {
+        spawn "nirix" "move-workspace-to-index" "-8"
+    }
+    // bottom workspace
+    Mod+9 repeat=false {
+        focus-workspace 1
+    }
+    Mod+Ctrl+9 repeat=false {
+        move-column-to-workspace 1
+    }
+    Mod+Shift+9 repeat=false {
+        move-workspace-to-index 1
+    }
+    // increase/decrease
+    Mod+Minus allow-when-locked=true {
+        spawn "noctalia" "msg" "volume-down"
+    }
+    XF86AudioLowerVolume allow-when-locked=true {
+        spawn "noctalia" "msg" "volume-down"
+    }
+    Mod+Equal allow-when-locked=true {
+        spawn "noctalia" "msg" "volume-up"
+    }
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn "noctalia" "msg" "volume-up"
+    }
+    Mod+Ctrl+Minus allow-when-locked=true {
+        spawn "noctalia" "msg" "mic-volume-down"
+    }
+    Mod+Ctrl+Equal allow-when-locked=true {
+        spawn "noctalia" "msg" "mic-volume-up"
+    }
+    Mod+Shift+Minus allow-when-locked=true {
+        spawn "noctalia" "msg" "brightness-down"
+    }
+    XF86MonBrightnessDown allow-when-locked=true {
+        spawn "noctalia" "msg" "brightness-down"
+    }
+    Mod+Shift+Equal allow-when-locked=true {
+        spawn "noctalia" "msg" "brightness-up"
+    }
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn "noctalia" "msg" "brightness-up"
+    }
+    Mod+Alt+Minus {
+        set-column-width "-10%"
+    }
+    Mod+Alt+Equal {
+        set-column-width "+10%"
+    }
+    Mod+Alt+Ctrl+Minus {
+        set-window-height "-10%"
+    }
+    Mod+Alt+Ctrl+Equal {
+        set-window-height "+10%"
+    }
+    // Q stands for Quit
+    Mod+Q repeat=false {
+        close-window
+    }
+    // W as a convention from i3/Sway
+    Mod+W repeat=false {
+        toggle-column-tabbed-display
+    }
+    // E stands for Examine
+    Mod+E repeat=false {
+        spawn-sh "noctalia msg notification-show 'Window information' \"$(niri msg pick-window)\""
+    }
+    // default
+    Mod+Ctrl+E repeat=false {
+        quit
+    }
+    // R stands for Resize
+    Mod+R repeat=false {
+        switch-preset-column-width
+    }
+    Mod+Ctrl+R repeat=false {
+        expand-column-to-available-width
+    }
+    Mod+Alt+R repeat=false {
+        switch-preset-window-height
+    }
+    Mod+Alt+Ctrl+R repeat=false {
+        reset-window-height
+    }
+    // T stands for Tiling/floating
+    Mod+T repeat=false {
+        switch-focus-between-floating-and-tiling
+    }
+    Mod+Ctrl+T repeat=false {
+        toggle-window-floating
+    }
+    // I stands for Inhibit
+    Mod+Ctrl+I repeat=false {
+        spawn "noctalia" "msg" "caffeine-toggle"
+    }
+    // O stands for Overview
+    Mod+O repeat=false {
+        toggle-overview
+    }
+    // P as a convention for outputs management
+    Mod+P repeat=false {
+        spawn "noctalia" "msg" "panel-toggle" "elijaharch/wl-screen-mirror:controls"
+    }
+    // P stands for Power off monitors
+    Mod+Alt+P repeat=false {
+        power-off-monitors
+    }
+    // default
+    Mod+BracketLeft repeat=false {
+        consume-or-expel-window-left
+    }
+    Mod+BracketRight repeat=false {
+        consume-or-expel-window-right
+    }
+    // D as a convention for starting an application launcher
+    Mod+D repeat=false {
+        spawn "fuzzel"
+    }
+    Mod+Ctrl+D repeat=false {
+        spawn "xdg-terminal-exec"
+    }
+    Mod+Shift+D repeat=false {
+        spawn-sh "$BROWSER"
+    }
+    // D stands for light/Dark
+    Mod+Alt+D repeat=false {
+        spawn "noctalia" "msg" "theme-mode-toggle"
+    }
+    // default
+    Mod+F repeat=false {
+        maximize-column
+    }
+    // F stands for Fullscreen
+    Mod+Ctrl+F repeat=false {
+        maximize-window-to-edges
+    }
+    Mod+Shift+F repeat=false {
+        fullscreen-window
+    }
+    Mod+Alt+F repeat=false {
+        toggle-windowed-fullscreen
+    }
+    // vim-like
+    Mod+H {
+        focus-column-left
+    }
+    Mod+J {
+        focus-window-down-or-top
+    }
+    Mod+K {
+        focus-window-up-or-bottom
+    }
+    Mod+L {
+        focus-column-right
+    }
+    Mod+Alt+H {
+        focus-monitor-left
+    }
+    Mod+Alt+J {
+        focus-workspace-down
+    }
+    Mod+Alt+K {
+        focus-workspace-up
+    }
+    Mod+Alt+L {
+        focus-monitor-right
+    }
+    Mod+Ctrl+H {
+        move-column-left
+    }
+    Mod+Ctrl+J {
+        move-window-down
+    }
+    Mod+Ctrl+K {
+        move-window-up
+    }
+    Mod+Ctrl+L {
+        move-column-right
+    }
+    Mod+Alt+Ctrl+H {
+        move-column-to-monitor-left
+    }
+    Mod+Alt+Ctrl+J {
+        move-column-to-workspace-down
+    }
+    Mod+Alt+Ctrl+K {
+        move-column-to-workspace-up
+    }
+    Mod+Alt+Ctrl+L {
+        move-column-to-monitor-right
+    }
+    Mod+Shift+H {
+        move-workspace-to-monitor-left
+    }
+    Mod+Shift+J {
+        move-workspace-down
+    }
+    Mod+Shift+K {
+        move-workspace-up
+    }
+    Mod+Shift+L {
+        move-workspace-to-monitor-right
+    }
+    // ";" as a metaphor for execution
+    Mod+Semicolon repeat=false {
+        spawn "xdg-terminal-exec" "--app-id=floating-terminal"
+    }
+    // V as in Ctrl+V
+    Mod+V repeat=false {
+        spawn "noctalia" "msg" "panel-toggle" "clipboard"
+    }
+    Mod+Ctrl+V repeat=false {
+        spawn "noctalia" "msg" "clipboard-clear"
+    }
+    // C stands for Center
+    Mod+C repeat=false {
+        center-window
+    }
+    Mod+Ctrl+C repeat=false {
+        center-visible-columns
+    }
+    // N stands for Notifications
+    Mod+N repeat=false {
+        spawn "noctalia" "msg" "notification-clear-active"
+    }
+    Mod+Ctrl+N repeat=false {
+        spawn "noctalia" "msg" "notification-clear-history"
+    }
+    // M stands for Mute
+    Mod+M repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "volume-mute"
+    }
+    XF86AudioMute repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "volume-mute"
+    }
+    Mod+Ctrl+M repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "mic-mute"
+    }
+    XF86AudioMicMute repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "mic-mute"
+    }
+    // default
+    Mod+Comma repeat=false {
+        consume-window-into-column
+    }
+    Mod+Period repeat=false {
+        expel-window-from-column
+    }
+    // S stands for Screenshot
+    Mod+S repeat=false {
+        screenshot show-pointer=false
+    }
+    Print repeat=false {
+        screenshot show-pointer=false
+    }
+    Mod+Ctrl+S repeat=false {
+        screenshot-window
+    }
+    Ctrl+Print repeat=false {
+        screenshot-window
+    }
+    Mod+Shift+S repeat=false {
+        screenshot-screen show-pointer=false
+    }
+    Shift+Print repeat=false {
+        screenshot-screen show-pointer=false
+    }
+    // media keys
+    XF86AudioPlay repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "media" "play"
+    }
+    XF86AudioStop repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "media" "stop"
+    }
+    XF86AudioPrev repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "media" "previous"
+    }
+    XF86AudioNext repeat=false allow-when-locked=true {
+        spawn "noctalia" "msg" "media" "next"
+    }
+}
+cursor {
+    xcursor-theme "breeze_cursors"
+    hide-after-inactive-ms 2500
+}
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    QT_IM_MODULE "fcitx"
+    QT_IM_MODULES "wayland;fcitx;ibus"
+    QT_QPA_PLATFORM "wayland"
+    XMODIFIERS "@im=fcitx"
+}
+gestures {
+    hot-corners {
+        top-right
+    }
+}
+hotkey-overlay {
+    skip-at-startup
+}
+input {
+    keyboard {
+        xkb {
+            layout "us"
+            options "caps:ctrl_modifier,compose:ralt,lv3:ralt_alt"
+        }
+    }
+    disable-power-key-handling
+    focus-follows-mouse max-scroll-amount="50%"
+    workspace-auto-back-and-forth
+}
+layer-rule {
+    match namespace="^noctalia-bar-"
+    background-effect {
+        blur false
+        xray false
+    }
+}
+layer-rule {
+    match namespace="^noctalia-notification$"
+    block-out-from "screen-capture"
+}
+layout {
+    always-center-single-column
+    border {
+        width 4
+        active-gradient from="00ffff" to="#fc9c39" angle=30
+        inactive-color "#505050"
+    }
+    center-focused-column "never"
+    default-column-width {
+        proportion 1.0
+    }
+    focus-ring {
+        off
+    }
+    gaps 16
+    tab-indicator {
+        place-within-column
+        gap 8
+    }
+}
+prefer-no-csd
+recent-windows {
+    binds {
+        Super+Tab {
+            next-window
+        }
+        Super+Alt+Tab {
+            previous-window
+        }
+    }
+}
+screenshot-path null
+spawn-at-startup "fcitx5"
+spawn-at-startup "noctalia"
+window-rule {
+    match app-id="^Throne$"
+    match app-id="^blueman"
+    match app-id="^org.pulseaudio.pavucontrol$"
+    match app-id="^floating-terminal$"
+    match app-id="^wev$"
+    open-floating true
+}
+window-rule {
+    match app-id="[Tt]elegram"
+    geometry-corner-radius 4
+}
+window-rule {
+    match app-id="wl_mirror$"
+    open-fullscreen true
+}
