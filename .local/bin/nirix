@@ -1,0 +1,32 @@
+#!/bin/sh
+
+calculate_workspace_idx () {
+    num_workspaces=$(niri msg --json workspaces | jq 'map(.idx)|max')
+    workspace_idx=$((($num_workspaces + $1) % $num_workspaces))
+    if [ $workspace_idx -eq 0 ]; then
+	echo $num_workspaces
+    else
+	echo $workspace_idx
+    fi
+}
+
+case $1 in
+    "focus-workspace")
+	niri msg action focus-workspace $(calculate_workspace_idx $2)
+    ;;
+    "move-column-to-workspace")
+	niri msg action move-column-to-workspace $(calculate_workspace_idx $2)
+    ;;
+    "move-workspace-to-index")
+	niri msg action move-workspace-to-index $(calculate_workspace_idx $2)
+    ;;
+    *)
+	echo "Usage: nirix <subcommand> [args]"
+	echo ""
+	echo "Subcommands:"
+	echo "  focus-workspace <workspace-index>           Focus a workspace by index"
+	echo "  move-column-to-workspace <workspace-index>  Move the focused column to a workspace by index"
+	echo "  move-workspace-to-index <workspace-index>   Move the focused workspace to a specific index on its monitor"
+	exit 2
+    ;;
+esac
