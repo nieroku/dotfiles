@@ -1,0 +1,4 @@
+[theme.templates.user.qutebrowser]
+input_path  = "$XDG_CONFIG_HOME/noctalia/templates/qutebrowser/template.py"
+output_path = "$XDG_CONFIG_HOME/qutebrowser/noctalia.py"
+post_hook   = "sh \"${XDG_CONFIG_HOME:-$HOME/.config}/noctalia/templates/qutebrowser/reload.sh\""
