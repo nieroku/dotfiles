@@ -195,9 +195,9 @@ binds {
     Mod+P repeat=false {
         spawn "noctalia" "msg" "panel-toggle" "elijaharch/wl-screen-mirror:controls"
     }
-    // P stands for Power off monitors
+    // P stands for Power profile
     Mod+Alt+P repeat=false {
-        power-off-monitors
+        spawn "noctalia" "msg" "power-cycle"
     }
     // default
     Mod+BracketLeft repeat=false {
@@ -305,6 +305,10 @@ binds {
     }
     Mod+Ctrl+V repeat=false {
         spawn "noctalia" "msg" "clipboard-clear"
+    }
+    // B stands for Blackout
+    Mod+B repeat=false {
+        power-off-monitors
     }
     // C stands for Center
     Mod+C repeat=false {
