@@ -322,7 +322,13 @@ binds {
         spawn "noctalia" "msg" "notification-clear-active"
     }
     Mod+Ctrl+N repeat=false {
+        spawn "noctalia" "msg" "notification-invoke-latest"
+    }
+    Mod+Shift+N repeat=false {
         spawn "noctalia" "msg" "notification-clear-history"
+    }
+    Mod+Alt+N repeat=false {
+        spawn "noctalia" "msg" "notification-dnd-toggle"
     }
     // M stands for Mute
     Mod+M repeat=false allow-when-locked=true {
