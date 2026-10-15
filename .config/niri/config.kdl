@@ -183,6 +183,14 @@ binds {
     Mod+Ctrl+T repeat=false {
         toggle-window-floating
     }
+    // Y is before U, which stands for Up
+    Mod+Y repeat=false {
+        focus-window-bottom
+    }
+    // U stands for Up
+    Mod+U repeat=false {
+        focus-window-top
+    }
     // I stands for Inhibit
     Mod+Ctrl+I repeat=false {
         spawn "noctalia" "msg" "caffeine-toggle"
@@ -192,9 +200,9 @@ binds {
         toggle-overview
     }
     // P as a convention for outputs management
-    Mod+P repeat=false {
-        spawn "noctalia" "msg" "panel-toggle" "elijaharch/wl-screen-mirror:controls"
-    }
+    // TODO:
+    // Mod+P repeat=false {
+    // }
     // P stands for Power profile
     Mod+Alt+P repeat=false {
         spawn "noctalia" "msg" "power-cycle"
@@ -239,10 +247,10 @@ binds {
         focus-column-left
     }
     Mod+J {
-        focus-window-down-or-top
+        focus-window-down
     }
     Mod+K {
-        focus-window-up-or-bottom
+        focus-window-up
     }
     Mod+L {
         focus-column-right
@@ -386,6 +394,9 @@ binds {
 cursor {
     xcursor-theme "breeze_cursors"
     hide-after-inactive-ms 2500
+}
+debug {
+    honor-xdg-activation-with-invalid-serial
 }
 environment {
     ELECTRON_OZONE_PLATFORM_HINT "wayland"

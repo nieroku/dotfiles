@@ -1,0 +1,3 @@
+[theme.templates.user.nvim_background]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/nvim/background"
+output_path = "$XDG_STATE_HOME/nvim/options/background"

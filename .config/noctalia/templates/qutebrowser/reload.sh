@@ -5,4 +5,4 @@ COLORS_FILE="${XDG_CONFIG_HOME:-$HOME/.config}/qutebrowser/noctalia.py"
 [ "$COLORS_FILE" -nt "$0" ] || exit 0
 touch "$0"
 
-pgrep -f qutebrowser >/dev/null && qutebrowser :config-source
+pgrep -f qutebrowser >/dev/null && qutebrowser --target tab-bg-silent :config-source
