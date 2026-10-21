@@ -1,0 +1,3 @@
+[theme.templates.user.wezterm]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/wezterm/Noctalia.toml"
+output_path = "$XDG_CONFIG_HOME/wezterm/colors/Noctalia.toml"
