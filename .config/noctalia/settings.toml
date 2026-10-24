@@ -157,9 +157,6 @@ offset_x = 32
 orientation = "vertical"
 position_vertical = "center_right"
 
-[plugins]
-enabled = []
-
 [shell]
 font_family = "Noto Sans"
 polkit_agent = true
@@ -235,7 +232,6 @@ variant = "destructive"
 [theme]
 builtin = "Kanagawa"
 community_palette = "Catppuccin Frappe Green"
-mode = "light"
 source = "builtin"
 
 [weather]

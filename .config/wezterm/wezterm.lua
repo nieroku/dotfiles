@@ -23,9 +23,9 @@ config.keys = {
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
 
 wezterm.add_to_config_reload_watch_list(wezterm.config_dir .. "/colors")
-local theme = io.open(wezterm.config_dir .. "/colors/Noctalia.toml", "r")
+local theme = io.open(wezterm.config_dir .. "/colors/noctalia.toml", "r")
 if theme ~= nil then
-  config.color_scheme = "Noctalia"
+  config.color_scheme = "noctalia"
   theme:close()
 end
 
